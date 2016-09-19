@@ -13,7 +13,7 @@ public class CalcolaCongruenzaBI {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Calcoliamo M modulo N, cioè il resto di M diviso N");        
+        System.out.print("Calcoliamo M modulo N, cioÃ¨ il resto di M diviso N");        
         System.out.println();
         System.out.print("Inserisci M: ");
         BigInteger m = new BigInteger(input.nextLine());

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.math.BigInteger;
 
-////mandando in esecuzione la classe, trova l' "esponente" m di x mod n, cioè m tale che x^m = 1 mod n
+////mandando in esecuzione la classe, trova l' "esponente" m di x mod n, cioÃ¨ m tale che x^m = 1 mod n
 //INPUT:n
 //OUTPUT:m
 //x viene scelto casualmente tra gli elementi coprimi di n
@@ -11,7 +11,7 @@ public final class TrovaEsponente {
 		//metodo che restituisce l'esponente m di un x scelto a caso tra i coprimi di n
 
         public static BigInteger scegliCoprimo(BigInteger n,BigInteger x){
-		// metodo che restituisce il più piccolo coprimo di n > x
+		// metodo che restituisce il piÃ¹ piccolo coprimo di n > x
 				x = x.add(BigInteger.ONE);
 		        while (n.gcd(x).compareTo(BigInteger.ONE)!=0){
 		        	x = x.add(BigInteger.ONE);
@@ -20,7 +20,7 @@ public final class TrovaEsponente {
         }
 
 		public static int trovaLogaritmoDiscreto(BigInteger g,BigInteger h,BigInteger n){
-				// metodo che risolve il logaritmo discreto cioè trova e tale che g^e=h mod n
+				// metodo che risolve il logaritmo discreto cioÃ¨ trova e tale che g^e=h mod n
 				// usa la BRUTE FORCE
 					int e = 0;
 					BigInteger temp = new BigInteger("1");
@@ -50,14 +50,14 @@ public final class TrovaEsponente {
 		}
 		public static int trovaEspConLogDiscr(BigInteger x,BigInteger n){
 			// metodo che restituisce m tale che x^m = 1 mod n
-			// se ritorna m=0 allora non è stato trovato nessun esponente
+			// se ritorna m=0 allora non Ã¨ stato trovato nessun esponente
 			int m = 0;
 			int q = 1;
 			BigInteger p = new BigInteger("2");
 			BigInteger contaOp = new BigInteger("0");
 
 			for (int i=0;i< (n.bitLength()+1) ;i++){//per i = 0, ..., log(n)+1 [che vale circa il numero di cifre di n in base 2]
-				//se p è primo allora cerco di risolvere Log di x in base x^p
+				//se p Ã¨ primo allora cerco di risolvere Log di x in base x^p
 				//e controllo che il risultato q sia tale che x^pq sia congruo a x mod n
 				//in questo caso restituisco m = pq-1
 				if (p.isProbablePrime(100)) {

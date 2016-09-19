@@ -3,7 +3,7 @@ import java.math.BigInteger;
 
 ////mandando in esecuzione la classe, trova un fattore di n con il metodo del Logaritmo Discreto
 // n non deve essere pari e non deve essere una potenza di primi, queste condizioni vanno testate con altri programmi
-//versione2: non c'e' piu' la scelta del coprimo, ma viene scelto un elemento di Z/NZ casualmente e se non è coprimo con N,allora avrò trovato un fattore
+//versione2: non c'e' piu' la scelta del coprimo, ma viene scelto un elemento di Z/NZ casualmente e se non Ã¨ coprimo con N,allora avrÃ² trovato un fattore
 //INPUT:n
 //OUTPUT:p
 

@@ -3,7 +3,7 @@ import java.math.BigInteger;
 ////mandando in esecuzione la classe, viene chiesto di inserire il numero da fattorizzare n, la base a e il limite l fino a cui eseguire la ricerca.Stampa il primo fattore trovato utilizzando il metodo di Pollar p-1.
 //{}
 public final class PollardPmeno1BI {
-		//metodo che restituisce 1 se il numero dato in input è primo
+		//metodo che restituisce 1 se il numero dato in input Ã¨ primo
 		public static int isPrimeBI (BigInteger p){
 				if (p.compareTo(BigInteger.ONE)==0) return 0;
         		BigInteger i = new BigInteger("2");
@@ -23,7 +23,7 @@ public final class PollardPmeno1BI {
         		}
         		return 1;
         }
-        //ritorna q se p = q^e è la potenza di un primo, altrimenti ritorna 4
+        //ritorna q se p = q^e Ã¨ la potenza di un primo, altrimenti ritorna 4
         public static int isPowerOfPrime (int p){
         		int controllo = p;
         		for (int k=2;k<=p;k++){
@@ -51,12 +51,12 @@ public final class PollardPmeno1BI {
                 return mcm;
         }*/
 
-        //crea la lista 2 3 2 5 7 2 3 11 13 2 17 19 ... fino al numero int l (compreso se è una potenza di primi) e
+        //crea la lista 2 3 2 5 7 2 3 11 13 2 17 19 ... fino al numero int l (compreso se Ã¨ una potenza di primi) e
         //ritorna il riferimento a questa lista
         public static BigInteger[] creaListaPrimiEPotenzeMinoriDi(int l){
         	//Scanner input = new Scanner(System.in);
 
-        	BigInteger[] lista = new BigInteger[l];//la lista contenente i numeri primi e le potenze di primi minori di l sarà lunga meno di l in realtà
+        	BigInteger[] lista = new BigInteger[l];//la lista contenente i numeri primi e le potenze di primi minori di l sarÃ  lunga meno di l in realtÃ 
         	int i = 2; //primo numero da inserire nella lista
         	int prov;
         	int indiceLista = 0;
@@ -72,7 +72,7 @@ public final class PollardPmeno1BI {
         }
 
         //metodo che ritorna il primo fattore trovato di num usando il metodo p-1 di pollard
-        //se non è stato trovato alcun fattore allora ritorna 1 o N
+        //se non Ã¨ stato trovato alcun fattore allora ritorna 1 o N
         public static BigInteger calcolaPrimoFattorePollardPmeno1(BigInteger num,BigInteger base, int lim,BigInteger[] listaPotenzePrimi){
         	BigInteger[] b = new BigInteger[listaPotenzePrimi.length];//+1 ??
         	int i = 0;
@@ -109,9 +109,9 @@ public final class PollardPmeno1BI {
         		BigInteger primoFattore = calcolaPrimoFattorePollardPmeno1(n,a,l,lista);
         		System.out.print( "il primo fattore trovato di "+ n + " e' "+ primoFattore);
         		System.out.println();
-        		/*if (isPrimeBI(primoFattore)==0) System.out.println(" che non è primo");
+        		/*if (isPrimeBI(primoFattore)==0) System.out.println(" che non Ã¨ primo");
         		else {
-        			System.out.println(" che è primo");
+        			System.out.println(" che Ã¨ primo");
         			return;
         		}*/
         		//se n non viene scomposto il metodo fallisce e viene suggerito di riprovare con un nuovo a

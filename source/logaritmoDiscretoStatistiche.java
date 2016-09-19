@@ -8,7 +8,7 @@ import java.math.BigInteger;
 
 //{}
 
-public final class logaritmoDiscretoGilbraithVersionModificato {
+public final class logaritmoDiscretoStatistiche {
 
 		public static BigInteger ordine(BigInteger g,BigInteger p){
 			BigInteger e = new BigInteger("1");
@@ -28,7 +28,7 @@ public final class logaritmoDiscretoGilbraithVersionModificato {
 			else return a.add(u[S(x,ns).intValue()]).mod(ord);//se nn ho l'ordine devo fare tutto mod(p.subtract(BigInteger.ONE))
         }
 
-        //in realt‡ non e' necessario costruire la funzione fb,poichË e' uguale ad fa ma con i parametri cambiati,la metto per completezza
+        //in realt√† non e' necessario costruire la funzione fb,poich√® e' uguale ad fa ma con i parametri cambiati,la metto per completezza
         public static BigInteger fb(BigInteger x, BigInteger b,BigInteger[] v,BigInteger p,BigInteger ns,BigInteger ord){
 			// metodo che restituisce 2a se S(x) = 0, altrimenti restituisce a+u[S(x)]
 			if (S(x,ns).compareTo(BigInteger.ZERO)==0) return b.add(b).mod(ord);//se nn ho l'ordine devo fare tutto mod(p.subtract(BigInteger.ONE))
@@ -54,11 +54,11 @@ public final class logaritmoDiscretoGilbraithVersionModificato {
 
            	System.out.print("Inserisci un numero primo per definire il campo Fp* --- p = ");
            	BigInteger p = new BigInteger(input.nextLine());
-           	//variabile che contiene la cardinalit‡ dell'anello
+           	//variabile che contiene la cardinalit√† dell'anello
 
            	System.out.print("Inserisci il numero di partizioni --- ns = ");
 			BigInteger ns = new BigInteger(input.nextLine());
-        	//variabile che contiene la cardinalit‡ dell'anello
+        	//variabile che contiene la cardinalit√† dell'anello
 
         	BigInteger[] u = new BigInteger[ns.intValue()];
         	BigInteger[] v = new BigInteger[ns.intValue()];
@@ -80,71 +80,67 @@ public final class logaritmoDiscretoGilbraithVersionModificato {
 			BigInteger B = new BigInteger("0");
 
         	int finito = 1;
-			while(finito==1){
-				//inizializzo i valori u[i] e v[i] scelti casualmente a random tali che 0 <= u[i],v[i] < ordine di g
-				//questi sono i parametri che rendono f una funzione pseudorandom
-				for (int i=1;i<ns.intValue();i++){
-					System.out.print("u["+i+"] = ");
-					u[i] = new BigInteger(input.nextLine());
-					System.out.print("v["+i+"] = ");
-					v[i] = new BigInteger(input.nextLine());
-				}
+        	int numCoppieInvertibili = 0;
+        	//per ns = 3
+			for (BigInteger k=new BigInteger("1");k.compareTo(ord)!=1;k=k.add(BigInteger.ONE)){
+			 for (BigInteger kk=new BigInteger("1");kk.compareTo(ord)!=1;kk=kk.add(BigInteger.ONE)){
+			  for (BigInteger kkk=new BigInteger("1");kkk.compareTo(ord)!=1;kkk=kkk.add(BigInteger.ONE)){
+			   for (BigInteger kkkk=new BigInteger("1");kkkk.compareTo(ord)!=1;kkkk=kkkk.add(BigInteger.ONE)){
+				System.out.println(k+" - "+kk+" - "+kkk+" - "+kkkk);
+				finito = 1;
 
-				//inizializzo i valori g[i] = g^u[i] * h^v[i]
-				gg = new BigInteger[ns.intValue()];
-				for (int i=1;i<ns.intValue();i++){
-								gg[i] = g.pow(u[i].intValue()).multiply(h.pow(v[i].intValue())).mod(p);
-				}
+				while(finito==1){
+					//inizializzo i valori u[i] e v[i] con tutte le possibili combinazioni da 1 a ord
+					u[1]=k;
+					v[1]=kk;
+					u[2]=kkk;
+					v[2]=kkkk;
+					//inizializzo i valori g[i] = g^u[i] * h^v[i]
+					gg = new BigInteger[ns.intValue()];
+					for (int i=1;i<ns.intValue();i++){
+						gg[i] = g.pow(u[i].intValue()).multiply(h.pow(v[i].intValue())).mod(p);
+					}
 
-				x = g;
-				a = new BigInteger("1");
-				b = new BigInteger("0");
+					x = g;
+					a = new BigInteger("1");
+					b = new BigInteger("0");
 
-				xx = fx(x,gg,p,ns,ord);
-				A = fa(x,a,u,p,ns,ord);
-				B = fb(x,b,v,p,ns,ord);
+					xx = fx(x,gg,p,ns,ord);
+					A = fa(x,a,u,p,ns,ord);
+					B = fb(x,b,v,p,ns,ord);
 
+					int i = 1;
+					while (x.compareTo(xx)!=0){
 
-				/*
-				//per stampare i primi 100 passi
-				for (int i=1;i<100;i++) {
-					System.out.println(i+" --> "+x+" -- "+a+" -- "+b+" -- "+S(x,ns));
-					a = fa(x,a,u,p,ns,ord);
-					b = fb(x,b,v,p,ns,ord);
-					x = fx(x,gg,p,ns,ord);
-				}
-				*/
+						i++;
 
+						a = fa(x,a,u,p,ns,ord);
+						b = fb(x,b,v,p,ns,ord);
+						x = fx(x,gg,p,ns,ord);
 
-				int i = 1;
-				System.out.println(i+" --> "+x+" -- "+a+" -- "+b+" -- "+S(x,ns)+" <--> "+xx+" -- "+A+" -- "+B+" -- "+S(xx,ns));
-				while (x.compareTo(xx)!=0){
+						A = fa(xx,A,u,p,ns,ord);
+						B = fb(xx,B,v,p,ns,ord);
+						xx = fx(xx,gg,p,ns,ord);
+						//eseguo questo calcolo 2 volte per la successione x2i
+						A = fa(xx,A,u,p,ns,ord);
+						B = fb(xx,B,v,p,ns,ord);
+						xx = fx(xx,gg,p,ns,ord);
+					}
 
-					i++;
-
-					a = fa(x,a,u,p,ns,ord);
-					b = fb(x,b,v,p,ns,ord);
-					x = fx(x,gg,p,ns,ord);
-
-					A = fa(xx,A,u,p,ns,ord);
-					B = fb(xx,B,v,p,ns,ord);
-					xx = fx(xx,gg,p,ns,ord);
-					//eseguo questo calcolo 2 volte per la successione x2i
-					A = fa(xx,A,u,p,ns,ord);
-					B = fb(xx,B,v,p,ns,ord);
-					xx = fx(xx,gg,p,ns,ord);
-
-					System.out.println(i+" --> "+x+" -- "+a+" -- "+b+" -- "+S(x,ns)+" <--> "+xx+" -- "+A+" -- "+B+" -- "+S(xx,ns));
-				}
-				System.out.println("il minimo i tale che xi = x2i vale: "+i);
-
-				//calcolo del logaritmo (a-A)(B-b)^(-1) mod ord //oppure mod p-1
-				if (B.subtract(b).gcd(ord).compareTo(BigInteger.ONE)==0){
-					System.out.println("il logaritmo cercato vale: "+a.subtract(A).multiply(B.subtract(b).modInverse(ord)).mod(ord));
+					if (B.subtract(b).gcd(ord).compareTo(BigInteger.ONE)==0){numCoppieInvertibili++;}
 					finito = 0;
-				}
-				else
-					System.out.println("inserisci dei nuovi valori iniziali:");
-			}
+
+
+				}//fine while
+
+			   }//fine for 4
+			  }//fine for 3
+			 }//fine for 2
+			}//fine for 1
+			System.out.println("Il numero di coppie invertibili trovato e': "+numCoppieInvertibili);
+			System.out.println("Su un totale di: "+ord.pow(4)+" coppie possibili");
+			System.out.println("Percentuale di coppie invertibili su coppie possibili = "+numCoppieInvertibili/ord.pow(4).intValue()*100+" %");
+			System.out.print("fine:");
+			input.nextLine();
         }
 }

@@ -27,7 +27,7 @@ public final class logaritmoDiscretoGilbraithVersion {
 			else return a.add(u[S(x,ns).intValue()]).mod(ord);//se nn ho l'ordine devo fare tutto mod(p.subtract(BigInteger.ONE))
         }
 
-        //in realt‡ non e' necessario costruire la funzione fb,poichË e' uguale ad fa ma con i parametri cambiati,la metto per completezza
+        //in realt√† non e' necessario costruire la funzione fb,poich√® e' uguale ad fa ma con i parametri cambiati,la metto per completezza
         public static BigInteger fb(BigInteger x, BigInteger b,BigInteger[] v,BigInteger p,BigInteger ns,BigInteger ord){
 			// metodo che restituisce 2a se S(x) = 0, altrimenti restituisce a+u[S(x)]
 			if (S(x,ns).compareTo(BigInteger.ZERO)==0) return b.add(b).mod(ord);//se nn ho l'ordine devo fare tutto mod(p.subtract(BigInteger.ONE))
@@ -53,11 +53,11 @@ public final class logaritmoDiscretoGilbraithVersion {
 
            	System.out.print("Inserisci un numero primo per definite il campo Fp* --- p = ");
            	BigInteger p = new BigInteger(input.nextLine());
-           	//variabile che contiene la cardinalit‡ dell'anello
+           	//variabile che contiene la cardinalit√† dell'anello
 
            	System.out.print("Inserisci il numero di partizioni --- ns = ");
 			BigInteger ns = new BigInteger(input.nextLine());
-        	//variabile che contiene la cardinalit‡ dell'anello
+        	//variabile che contiene la cardinalit√† dell'anello
 
         	BigInteger[] u = new BigInteger[ns.intValue()];
         	BigInteger[] v = new BigInteger[ns.intValue()];

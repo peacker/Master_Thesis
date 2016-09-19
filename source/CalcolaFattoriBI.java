@@ -22,7 +22,7 @@ import java.math.BigInteger;
             }
             i=i.add(BigInteger.ONE);
         }
-        // se il più grande fattore trovato appare solo una volta, n > 1
+        // se il piÃ¹ grande fattore trovato appare solo una volta, n > 1
         if (n.compareTo(BigInteger.ONE)==1) System.out.println(n);
         else       System.out.println();
 

@@ -100,7 +100,7 @@ public final class logaritmoDiscreto {
 
            	System.out.println("Inserisci n: ");
 			BigInteger n = new BigInteger(input.nextLine());
-        	//variabile che contiene la cardinalit‡ dell'anello
+        	//variabile che contiene la cardinalit√† dell'anello
 
         	BigInteger a = trovaLogaritmoDiscreto(g,h,n);
 

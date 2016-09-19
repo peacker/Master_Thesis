@@ -10,7 +10,7 @@ import java.math.BigInteger;
 public final class logaritmoDiscretoBruteForce {
 
 		public static int trovaLogaritmoDiscreto(BigInteger g,BigInteger h,BigInteger n){
-			//metodo che risolve il logaritmo discreto cioË trova e tale che g^e=h mod n
+			//metodo che risolve il logaritmo discreto cio√® trova e tale che g^e=h mod n
 			int e = 0;
 			BigInteger temp = new BigInteger("1");
 
@@ -37,7 +37,7 @@ public final class logaritmoDiscretoBruteForce {
 
            	System.out.println("Inserisci n: ");
 			BigInteger n = new BigInteger(input.nextLine());
-        	//variabile che contiene la cardinalit‡ dell'anello
+        	//variabile che contiene la cardinalit√† dell'anello
 
         	int a = trovaLogaritmoDiscreto(g,h,n);
 

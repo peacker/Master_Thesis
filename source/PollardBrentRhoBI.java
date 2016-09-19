@@ -14,7 +14,7 @@ public final class PollardBrentRhoBI {
         }
 
         //metodo che ritorna il primo fattore trovato di num usando il metodo Rho di pollard
-        //se non è stato trovato alcun fattore allora ritorna num
+        //se non Ã¨ stato trovato alcun fattore allora ritorna num
         public static BigInteger calcolaPrimoFattorePollardBrentRho(BigInteger n,BigInteger a, BigInteger x0){
         	BigInteger y ;
         	BigInteger x ;

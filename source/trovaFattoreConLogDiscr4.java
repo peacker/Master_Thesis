@@ -3,7 +3,7 @@ import java.math.BigInteger;
 
 ////mandando in esecuzione la classe, trova un fattore di n con il metodo del Logaritmo Discreto
 // n non deve essere pari e non deve essere una potenza di primi, queste condizioni vanno testate con altri programmi
-//versione3: non c'e' piu' la scelta del coprimo, ma viene scelto un elemento di Z/NZ casualmente e se non Ë coprimo con N,allora avrÚ trovato un fattore
+//versione3: non c'e' piu' la scelta del coprimo, ma viene scelto un elemento di Z/NZ casualmente e se non √® coprimo con N,allora avr√≤ trovato un fattore
 //inoltre la ricerca dell'esponente avviene cercando il logaritmo discreto risolto con RHO!!
 //INPUT:n
 //OUTPUT:p
@@ -24,7 +24,7 @@ public final class trovaFattoreConLogDiscr4 {
 				else return a.add(u[S(x,ns).intValue()]).mod(ord);//se nn ho l'ordine devo fare tutto mod(p.subtract(BigInteger.ONE))
 			}
 
-			//in realt‡ non e' necessario costruire la funzione fb,poichË e' uguale ad fa ma con i parametri cambiati,la metto per completezza
+			//in realt√† non e' necessario costruire la funzione fb,poich√® e' uguale ad fa ma con i parametri cambiati,la metto per completezza
 			public static BigInteger fb(BigInteger x, BigInteger b,BigInteger[] v,BigInteger p,BigInteger ns,BigInteger ord){
 				// metodo che restituisce 2a se S(x) = 0, altrimenti restituisce a+u[S(x)]
 				if (S(x,ns).compareTo(BigInteger.ZERO)==0) return b.add(b).mod(ord);//se nn ho l'ordine devo fare tutto mod(p.subtract(BigInteger.ONE))
@@ -47,7 +47,7 @@ public final class trovaFattoreConLogDiscr4 {
 
 			//g contiene la base del logaritmo
 			//h
-			//p contiene la cardinalit‡ dell'anello
+			//p contiene la cardinalit√† dell'anello
 
 			BigInteger ns = new BigInteger("4");
 			//ns contiene il numero di partizioni del gruppo G
@@ -123,14 +123,14 @@ public final class trovaFattoreConLogDiscr4 {
 		}
         public static BigInteger trovaEspConLogDiscr(BigInteger x,BigInteger n){
 			// metodo che restituisce m tale che x^m = 1 mod n
-			// se ritorna 0 allora non Ë stato trovato nessun esponente
+			// se ritorna 0 allora non √® stato trovato nessun esponente
 
 			BigInteger q = new BigInteger("1");
 			BigInteger p = new BigInteger("2");
 			BigInteger contaOp = new BigInteger("0");
 
 			for (int i=0;i< (n.bitLength()+1) ;i++){//per i = 0, ..., log(n)+1 [che vale circa il numero di cifre di n in base 2]
-				//se p Ë primo allora cerco di risolvere Log di x in base x^p
+				//se p e' primo allora cerco di risolvere Log di x in base x^p
 				//e controllo che il risultato q sia tale che x^pq sia congruo a x mod n
 				//in questo caso restituisco pq-1
 				if (p.isProbablePrime(100)) {

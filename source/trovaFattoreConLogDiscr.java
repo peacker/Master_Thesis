@@ -11,7 +11,7 @@ import java.math.BigInteger;
 public final class trovaFattoreConLogDiscr {
 
         public static BigInteger scegliCoprimo(BigInteger n,BigInteger x){
-				// metodo che restituisce il più piccolo coprimo di n > x
+				// metodo che restituisce il piÃ¹ piccolo coprimo di n > x
 						x = x.add(BigInteger.ONE);
 				        while (n.gcd(x).compareTo(BigInteger.ONE)!=0){
 				        	x = x.add(BigInteger.ONE);

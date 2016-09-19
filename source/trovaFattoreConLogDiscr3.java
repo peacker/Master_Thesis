@@ -3,7 +3,7 @@ import java.math.BigInteger;
 
 ////mandando in esecuzione la classe, trova un fattore di n con il metodo del Logaritmo Discreto
 // n non deve essere pari e non deve essere una potenza di primi, queste condizioni vanno testate con altri programmi
-//versione3: non c'e' piu' la scelta del coprimo, ma viene scelto un elemento di Z/NZ casualmente e se non è coprimo con N,allora avrò trovato un fattore
+//versione3: non c'e' piu' la scelta del coprimo, ma viene scelto un elemento di Z/NZ casualmente e se non Ã¨ coprimo con N,allora avrÃ² trovato un fattore
 //inoltre la ricerca dell'esponente avviene cercando il logaritmo discreto con BRUTE FORCE..
 //INPUT:n
 //OUTPUT:p
@@ -13,7 +13,7 @@ import java.math.BigInteger;
 public final class trovaFattoreConLogDiscr3 {
 
         public static BigInteger trovaLogaritmoDiscreto(BigInteger g,BigInteger h,BigInteger n){
-			// metodo che risolve il logaritmo discreto cioè trova e tale che g^e=h mod n
+			// metodo che risolve il logaritmo discreto cioÃ¨ trova e tale che g^e=h mod n
 			// usa la BRUTE FORCE
 			BigInteger e = new BigInteger("0");
 			BigInteger temp = new BigInteger("1");
@@ -32,7 +32,7 @@ public final class trovaFattoreConLogDiscr3 {
 
         public static BigInteger trovaEspConLogDiscr(BigInteger x,BigInteger n){
 			// metodo che restituisce m tale che x^m = 1 mod n
-			// se ritorna 0 allora non è stato trovato nessun esponente
+			// se ritorna 0 allora non Ã¨ stato trovato nessun esponente
 
 			BigInteger q = new BigInteger("1");
 			BigInteger p = new BigInteger("2");
@@ -41,7 +41,7 @@ public final class trovaFattoreConLogDiscr3 {
 			System.out.println("Cerco l'esponente di "+x+" mod "+n);
 
 			for (int i=0;i< (n.bitLength()+1) ;i++){//per i = 0, ..., log(n)+1 [che vale circa il numero di cifre di n in base 2]
-				//se p è primo allora cerco di risolvere Log di x in base x^p
+				//se p Ã¨ primo allora cerco di risolvere Log di x in base x^p
 				//e controllo che il risultato q sia tale che x^pq sia congruo a x mod n
 				//in questo caso restituisco pq-1
 				System.out.print("p = "+p);
@@ -70,7 +70,7 @@ public final class trovaFattoreConLogDiscr3 {
 				else System.out.println(" che NON e' primo ");
 				p = p.add(BigInteger.ONE);
 			}
-			System.out.println("Non e' stato trovato nessun esponente perciò restituisco m = 0");
+			System.out.println("Non e' stato trovato nessun esponente perciÃ² restituisco m = 0");
 			return BigInteger.ZERO;
 		}
 

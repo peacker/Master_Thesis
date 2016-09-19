@@ -3,7 +3,7 @@ import java.math.BigInteger;
 ////mandando in esecuzione la classe, viene chiesto di inserire il numero da fattorizzare n, la base a e il limite l fino a cui eseguire la ricerca.Stampa il primo fattore trovato utilizzando il metodo Rho di Pollar
 //{}
 public final class PollardRhoBI {
-		//metodo che restituisce 1 se il numero dato in input è primo
+		//metodo che restituisce 1 se il numero dato in input Ã¨ primo
 		/*public static int isPrimeBI (BigInteger p){
 				if (p.compareTo(BigInteger.ONE)==0) return 0;
         		BigInteger i = new BigInteger("2");
@@ -23,7 +23,7 @@ public final class PollardRhoBI {
         		}
         		return 1;
         }
-        //ritorna q se p = q^e è la potenza di un primo, altrimenti ritorna 4
+        //ritorna q se p = q^e Ã¨ la potenza di un primo, altrimenti ritorna 4
         public static int isPowerOfPrime (int p){
         		int controllo = p;
         		for (int k=2;k<=p;k++){
@@ -46,7 +46,7 @@ public final class PollardRhoBI {
         }
 
         //metodo che ritorna il primo fattore trovato di num usando il metodo Rho di pollard
-        //se non è stato trovato alcun fattore allora ritorna num
+        //se non Ã¨ stato trovato alcun fattore allora ritorna num
         public static BigInteger calcolaPrimoFattorePollardRho(BigInteger n,BigInteger a, BigInteger s){
         	BigInteger u ;
         	BigInteger v ;
