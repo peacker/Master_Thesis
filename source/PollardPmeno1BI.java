@@ -1,3 +1,6 @@
+package net.emanuelebellini.master_thesis
+
+
 import java.util.Scanner;
 import java.math.BigInteger;
 ////mandando in esecuzione la classe, viene chiesto di inserire il numero da fattorizzare n, la base a e il limite l fino a cui eseguire la ricerca.Stampa il primo fattore trovato utilizzando il metodo di Pollar p-1.

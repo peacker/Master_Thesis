@@ -1,3 +1,6 @@
+package net.emanuelebellini.master_thesis
+
+
 import java.util.Scanner;
 
 import java.math.BigInteger;
