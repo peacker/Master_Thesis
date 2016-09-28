@@ -1,4 +1,4 @@
-package net.emanuelebellini.master_thesis
+//package master_thesis;
 
 
 import java.util.Scanner;
